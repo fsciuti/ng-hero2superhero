@@ -4,12 +4,14 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ProjectListComponent } from './project/project-list/project-list.component';
 import { ProjectDetailComponent } from './project/project-detail/project-detail.component';
+import { ProjectContainerComponent } from './project/project-container/project-container.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProjectListComponent,
-    ProjectDetailComponent
+    ProjectDetailComponent,
+    ProjectContainerComponent
   ],
   imports: [
     BrowserModule
