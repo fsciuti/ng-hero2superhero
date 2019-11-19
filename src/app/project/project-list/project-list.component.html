@@ -9,4 +9,4 @@
         </div>
     </div>
 </div>
-<ngptt-project-detail [project]="selectedProject"></ngptt-project-detail>
+<ngptt-project-detail (highlight)="onHighlightProject($event)" [project]="selectedProject"></ngptt-project-detail>

@@ -6,5 +6,5 @@
         <span>Codice: {{project.code}} - Data Inizio: {{project.start | date:'dd/MM/yyyy'}}</span>
         <span *ngIf="project.end">- Data Fine: {{project.end | date:'dd/MM/yyyy'}}</span>
     </p>
-    <button class="btn btn-primary btn-sm">Modifica Progetto</button>
+    <button class="btn btn-primary btn-sm" (click)="onHighlight();">Metti in Evidenza</button>
 </div>

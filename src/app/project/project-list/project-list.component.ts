@@ -52,4 +52,8 @@ export class ProjectListComponent implements OnInit {
   selectProject(project: Project) {
     this.selectedProject = project;
   }
+
+  onHighlightProject(project: Project) {
+    console.log('highlight', project);
+  }
 }
