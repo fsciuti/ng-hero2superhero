@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Project } from '@app/models/project.model';
 
 @Component({
@@ -7,6 +7,8 @@ import { Project } from '@app/models/project.model';
   styles: []
 })
 export class ProjectListComponent implements OnInit {
+  @Output() selected = new EventEmitter<Project>();
+
   projects: Project[] = [
     {
       id: 1,
@@ -42,18 +44,12 @@ export class ProjectListComponent implements OnInit {
     },
   ];
 
-  selectedProject: Project;
-
   constructor() { }
 
   ngOnInit() {
   }
 
   selectProject(project: Project) {
-    this.selectedProject = project;
-  }
-
-  onHighlightProject(project: Project) {
-    console.log('highlight', project);
+    this.selected.emit(project);
   }
 }
