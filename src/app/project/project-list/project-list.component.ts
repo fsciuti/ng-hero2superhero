@@ -42,9 +42,14 @@ export class ProjectListComponent implements OnInit {
     },
   ];
 
+  selectedProject: Project;
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  selectProject(project: Project) {
+    this.selectedProject = project;
+  }
 }
