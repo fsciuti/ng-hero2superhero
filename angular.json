@@ -31,7 +31,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "fs",
+      "prefix": "ngptt",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
