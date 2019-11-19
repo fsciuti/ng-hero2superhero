@@ -4,14 +4,17 @@
             <div class="card-body">
                 <h5 class="card-title"><span class="badge badge-light float-right">{{ project.code }}</span>
                     {{ project.name }}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">
-                    <small>{{ project.start | date: 'dd/MM/yyyy' }}</small>
-                    <small *ngIf="project.end"> - {{ project.end | date: 'dd/MM/yyyy' }}</small>
-                </h6>
-                <p class="card-text">{{ project.description }}</p>
                 <a href="#" class="btn btn-primary btn-sm" (click)="selectProject(project)">Vai al Progetto</a>
             </div>
         </div>
     </div>
 </div>
-<p>{{selectedProject?.code}} - {{selectedProject?.name}}</p>
+<div class="jumbotron" *ngIf="selectedProject as project">
+    <h1 class="display-4">{{project.name}}</h1>
+    <p class="lead">{{project.description}}</p>
+    <hr class="my-4">
+    <p>
+        <span>Codice: {{project.code}} - Data Inizio: {{project.start | date:'dd/MM/yyyy'}}</span>
+        <span *ngIf="project.end">- Data Fine: {{project.end | date:'dd/MM/yyyy'}}</span>
+    </p>
+</div>
