@@ -1,0 +1,10 @@
+<div class="jumbotron" *ngIf="project">
+    <h1 class="display-4">{{project.name}}</h1>
+    <p class="lead">{{project.description}}</p>
+    <hr class="my-4">
+    <p>
+        <span>Codice: {{project.code}} - Data Inizio: {{project.start | date:'dd/MM/yyyy'}}</span>
+        <span *ngIf="project.end">- Data Fine: {{project.end | date:'dd/MM/yyyy'}}</span>
+    </p>
+    <button class="btn btn-primary btn-sm">Modifica Progetto</button>
+</div>
