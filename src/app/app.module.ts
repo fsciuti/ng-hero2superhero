@@ -8,6 +8,7 @@ import { ProjectDetailComponent } from './project/project-detail/project-detail.
 import { ProjectContainerComponent } from './project/project-container/project-container.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
+import { LogoutComponent } from './auth/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { LoginComponent } from './auth/login/login.component';
     ProjectDetailComponent,
     ProjectContainerComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
