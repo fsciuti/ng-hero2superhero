@@ -15,6 +15,7 @@ import { JwtInterceptor } from './auth/jwt.interceptor';
 import { ErrorInterceptor } from './auth/error.interceptor';
 import { HeaderComponent } from './header/header.component';
 import { HasRoleDirective } from '@app/auth/has-role.directive';
+import { IsAuthedDirective } from '@app/auth/is-authed.directive';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HasRoleDirective } from '@app/auth/has-role.directive';
     LoginComponent,
     LogoutComponent,
     HeaderComponent,
-    HasRoleDirective
+    HasRoleDirective,
+    IsAuthedDirective
   ],
   imports: [
     BrowserModule,
