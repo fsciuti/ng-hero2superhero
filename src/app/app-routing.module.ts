@@ -6,8 +6,10 @@ import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
 import { LogoutComponent } from './auth/logout/logout.component';
 
+import { AuthenticationGuard } from '@app/auth/authentication.guard';
+
 const routes: Routes = [
-    { path: 'projects', component: ProjectContainerComponent },
+    { path: 'projects', component: ProjectContainerComponent, canActivate: [ AuthenticationGuard ] },
     { path: 'signin', component: LoginComponent },
     { path: 'signout', component: LogoutComponent },
     { path: 'signup', component: RegisterComponent },
