@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../authentication.service';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { switchMap, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'ngptt-login',
@@ -8,14 +10,25 @@ import { AuthenticationService } from '../authentication.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authService: AuthenticationService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private authService: AuthenticationService) { }
 
   ngOnInit() {}
 
   login() {
-    this.authService.login('test@email.com', 'test').subscribe(response => {
-      console.log(response);
-      console.log(this.authService.decodedAuthToken);
+    this.route.queryParamMap.subscribe((data: ParamMap) => {
+      console.log('dopo il login verrai reindirizzato', data.get('returnUrl'));
+    })
+
+    this.authService.login('test@email.com', 'test').pipe(
+      tap(response => {
+        console.log(response);
+        console.log(this.authService.decodedAuthToken);
+      }),
+      switchMap(() => this.route.queryParamMap)
+    ).subscribe((data: ParamMap) => {
+      if(data.has('returnUrl')) {
+        this.router.navigate([data.get('returnUrl')]);
+      }
     });
   }
 }
