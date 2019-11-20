@@ -2,23 +2,25 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ProjectRoutingModule } from './project-routing.module';
-import { ProjectContainerComponent } from './pages/project-container/project-container.component';
+import { ProjectComponent } from './pages/project.component';
 import { ProjectListComponent } from './components/project-list/project-list.component';
 import { ProjectDetailComponent } from './components/project-detail/project-detail.component';
+import { ProjectDashboardComponent } from './pages/project-dashboard/project-dashboard.component';
 
 
 @NgModule({
   declarations: [
-    ProjectContainerComponent,
+    ProjectComponent,
     ProjectListComponent,
-    ProjectDetailComponent
+    ProjectDetailComponent,
+    ProjectDashboardComponent
   ],
   imports: [
     CommonModule,
     ProjectRoutingModule
   ],
   exports: [
-    ProjectContainerComponent
+    ProjectComponent
   ]
 })
 export class ProjectModule { }
