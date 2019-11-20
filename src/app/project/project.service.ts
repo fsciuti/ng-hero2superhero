@@ -1,24 +1,31 @@
 import { Injectable } from '@angular/core';
 import { Project } from '@app/models/project.model';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
+import { AuthenticationService } from '@app/auth/authentication.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private authService: AuthenticationService) { }
+  
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Authorization': `Bearer ${this.authService.authToken}`
+    })
+  } 
 
   getAll() {
-    return this.http.get<Project[]>('http://localhost:8000/projects').pipe(
+    return this.http.get<Project[]>('http://localhost:8000/projects', this.httpOptions).pipe(
       retry(3),
       catchError(this.handleError)
     );
   }
 
   get(id: number) {
-    return this.http.get<Project>(`http://localhost:8000/projects/${id}`).pipe(
+    return this.http.get<Project>(`http://localhost:8000/projects/${id}`, this.httpOptions).pipe(
       retry(3),
       catchError(this.handleError)
     );
