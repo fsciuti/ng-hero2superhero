@@ -13,7 +13,8 @@ const routes: Routes = [
     { path: 'signup', component: RegisterComponent },
     { 
         path: 'projects',
-        loadChildren: () => import('./project/project.module').then(m => m.ProjectModule)
+        loadChildren: () => import('./project/project.module').then(m => m.ProjectModule),
+        canLoad: [ AuthenticationGuard ]
     },
     { path: '', redirectTo: 'signin', pathMatch: 'full' },
     { path: '**', redirectTo: 'signin', pathMatch: 'full' }
