@@ -10,22 +10,16 @@ import { AuthenticationService } from '@app/auth/authentication.service';
 })
 export class ProjectService {
   constructor(private http: HttpClient, private authService: AuthenticationService) { }
-  
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Authorization': `Bearer ${this.authService.authToken}`
-    })
-  } 
 
   getAll() {
-    return this.http.get<Project[]>('http://localhost:8000/projects', this.httpOptions).pipe(
+    return this.http.get<Project[]>('http://localhost:8000/projects').pipe(
       retry(3),
       catchError(this.handleError)
     );
   }
 
   get(id: number) {
-    return this.http.get<Project>(`http://localhost:8000/projects/${id}`, this.httpOptions).pipe(
+    return this.http.get<Project>(`http://localhost:8000/projects/${id}`).pipe(
       retry(3),
       catchError(this.handleError)
     );
