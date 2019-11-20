@@ -14,6 +14,7 @@ import { LogoutComponent } from './auth/logout/logout.component';
 import { JwtInterceptor } from './auth/jwt.interceptor';
 import { ErrorInterceptor } from './auth/error.interceptor';
 import { HeaderComponent } from './header/header.component';
+import { HasRoleDirective } from '@app/auth/has-role.directive';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HeaderComponent } from './header/header.component';
     RegisterComponent,
     LoginComponent,
     LogoutComponent,
-    HeaderComponent
+    HeaderComponent,
+    HasRoleDirective
   ],
   imports: [
     BrowserModule,

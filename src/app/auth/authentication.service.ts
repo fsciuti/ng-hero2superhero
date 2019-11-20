@@ -23,7 +23,7 @@ export class AuthenticationService {
     return localStorage.getItem('access_token') || "";
   }
 
-  public get decodedAuthToken(): object {
+  public get decodedAuthToken() {
     return this.helper.decodeToken(localStorage.getItem('access_token')) || {};
   }
   
