@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Project } from '@app/models/project.model';
-import { ProjectService } from '../project.service';
+import { ProjectService } from '../../project.service';
 
 @Component({
   selector: 'ngptt-project-container',
