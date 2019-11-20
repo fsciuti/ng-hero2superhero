@@ -8,13 +8,13 @@ export class JwtInterceptor implements HttpInterceptor {
 
     intercept(request: HttpRequest<any>, next: HttpHandler) {
         console.log('Interceptor', request.url);
-        if(this.authService.loggedIn) {
+        if(this.authService.authToken) {
             request = request.clone({
                 setHeaders: {
                     Authorization: `Bearer ${this.authService.authToken}`
                 }
             })
-        }        
+        }   
         return next.handle(request);
     }
 }
