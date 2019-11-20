@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { SelectivePreloadingStrategyService } from './selective-preloading-strategy.service';
+
 import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
 import { LogoutComponent } from './auth/logout/logout.component';
@@ -22,7 +24,10 @@ const routes: Routes = [
 
 @NgModule({
     imports: [
-        RouterModule.forRoot(routes)
+        RouterModule.forRoot(
+            routes,
+            { preloadingStrategy: SelectivePreloadingStrategyService /* PreloadAllModules */ }
+            )
     ],
     exports: [
         RouterModule
