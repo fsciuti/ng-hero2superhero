@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Project } from '@app/models/project.model';
+import { ProjectService } from '../project.service';
 
 @Component({
   selector: 'ngptt-project-container',
@@ -7,11 +8,13 @@ import { Project } from '@app/models/project.model';
   styles: []
 })
 export class ProjectContainerComponent implements OnInit {
+  projects: Project[] = [];
   selectedProject: Project;
 
-  constructor() { }
+  constructor(private projectService: ProjectService) { }
 
   ngOnInit() {
+    this.projects = this.projectService.getAll();
   }
 
   onSelectedProject(project: Project) {
