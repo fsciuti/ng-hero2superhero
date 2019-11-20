@@ -7,6 +7,7 @@ import { ProjectListComponent } from './project/project-list/project-list.compon
 import { ProjectDetailComponent } from './project/project-detail/project-detail.component';
 import { ProjectContainerComponent } from './project/project-container/project-container.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { LoginComponent } from './auth/login/login.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { RegisterComponent } from './auth/register/register.component';
     ProjectListComponent,
     ProjectDetailComponent,
     ProjectContainerComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
