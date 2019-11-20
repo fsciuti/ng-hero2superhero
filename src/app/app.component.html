@@ -2,4 +2,8 @@
 
 <div class="container mt-3">
     <router-outlet></router-outlet>
+    <div class="mx-auto fixed-bottom text-center" style="width: 200px;">
+        <a [routerLink]="[{ outlets: { popup: ['guide'] } }]">Contact</a>
+        <router-outlet name="popup"></router-outlet>
+    </div>
 </div>

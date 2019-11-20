@@ -14,6 +14,7 @@ import { ErrorInterceptor } from './auth/error.interceptor';
 import { HeaderComponent } from './header/header.component';
 import { HasRoleDirective } from '@app/auth/has-role.directive';
 import { IsAuthedDirective } from '@app/auth/is-authed.directive';
+import { GuideComponent } from './guide/guide.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { IsAuthedDirective } from '@app/auth/is-authed.directive';
     LogoutComponent,
     HeaderComponent,
     HasRoleDirective,
-    IsAuthedDirective
+    IsAuthedDirective,
+    GuideComponent
   ],
   imports: [
     BrowserModule,

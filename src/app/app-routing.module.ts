@@ -7,9 +7,14 @@ import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
 import { LogoutComponent } from './auth/logout/logout.component';
 import { AuthenticationGuard } from './auth/authentication.guard';
-
+import { GuideComponent } from './guide/guide.component';
 
 const routes: Routes = [
+    {
+        path: 'guide',
+        component: GuideComponent,
+        outlet: 'popup'
+    },
     { path: 'signin', component: LoginComponent },
     { path: 'signout', component: LogoutComponent },
     { path: 'signup', component: RegisterComponent },
@@ -18,8 +23,8 @@ const routes: Routes = [
         loadChildren: () => import('./project/project.module').then(m => m.ProjectModule),
         canLoad: [ AuthenticationGuard ]
     },
-    { path: '', redirectTo: 'signin', pathMatch: 'full' },
-    { path: '**', redirectTo: 'signin', pathMatch: 'full' }
+    { path: '', redirectTo: 'signin', pathMatch: 'full',  },
+    { path: '**', redirectTo: 'signin' }
 ]
 
 @NgModule({
