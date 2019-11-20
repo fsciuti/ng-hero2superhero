@@ -14,7 +14,7 @@ import { ErrorInterceptor } from './auth/error.interceptor';
 import { HeaderComponent } from './header/header.component';
 import { HasRoleDirective } from '@app/auth/has-role.directive';
 import { IsAuthedDirective } from '@app/auth/is-authed.directive';
-import { ProjectModule } from './project/project.module';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +29,6 @@ import { ProjectModule } from './project/project.module';
   imports: [
     BrowserModule,
     HttpClientModule,
-    ProjectModule,
     AppRoutingModule
   ],
   providers: [
