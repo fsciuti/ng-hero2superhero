@@ -1,4 +1,4 @@
-<div class="jumbotron" *ngIf="project">
+<div class="jumbotron" *ngIf="project || (project$ | async) as project">
     <h1 class="display-4">{{project.name}}</h1>
     <p class="lead">{{project.description}}</p>
     <hr class="my-4">
