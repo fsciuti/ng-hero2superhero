@@ -5,15 +5,15 @@
             <li class="nav-item">
                 <a class="nav-link" routerLink="">Dashboard</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" routerLinkActive="active">
                 <a class="nav-link" routerLink="/projects">Progetti</a>
             </li>
         </ul>
         <ul class="navbar-nav">
-            <li class="nav-item">
+            <li class="nav-item" routerLinkActive="active">
                 <a class="nav-link" *fsIsAuthed="false" routerLink="/signin">Login</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" [routerLinkActive]="'active'">
                 <a class="nav-link" *fsIsAuthed="true" routerLink="/signout">Logout</a>
             </li>
             <li class="nav-item">
