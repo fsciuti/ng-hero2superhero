@@ -11,9 +11,10 @@ const routes: Routes = [
   { 
     path: 'projects', 
     component: ProjectComponent,
+    canActivateChild: [ AuthenticationGuard ],
     children: [
-      { path: '', component: ProjectDashboardComponent, canActivate: [ AuthenticationGuard ] },
-      { path: ':id', component: ProjectDetailComponent, canActivate: [ AuthenticationGuard ] }
+      { path: '', component: ProjectDashboardComponent },
+      { path: ':id', component: ProjectDetailComponent }
     ]
   }
 ];
