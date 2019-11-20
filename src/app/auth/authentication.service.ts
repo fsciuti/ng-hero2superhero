@@ -13,7 +13,17 @@ export class AuthenticationService {
   constructor(private http: HttpClient) { }
 
   login(email: string, password: string): Observable<AuthToken> {
-    return this.http.post<AuthToken>('http://localhost:8000/auth/login', { email, password });
+    return this.http.post<AuthToken>('http://localhost:8000/auth/login', { email, password }).pipe(
+      tap(response => localStorage.setItem('access_token', response.access_token))
+    );
+  }
+
+  public get loggedIn(): boolean {
+    return localStorage.getItem('access_token') !==  null;
+  }
+
+  logout(): void {
+    localStorage.removeItem('access_token');
   }
 
   register(email: string, password: string):  Observable<AuthToken> {
