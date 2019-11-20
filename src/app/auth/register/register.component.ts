@@ -13,6 +13,6 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {}
 
   register() {
-    this.authService.register('test@email.com', 'test').subscribe(() => console.log('User registered'));
+    this.authService.register('test@email.com', 'test', 'admin').subscribe(() => console.log('User registered'));
   }
 }

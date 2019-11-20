@@ -37,7 +37,7 @@ export class AuthenticationService {
     localStorage.removeItem('access_token');
   }
 
-  register(email: string, password: string):  Observable<AuthToken> {
-    return this.http.post<AuthToken>('http://localhost:8000/auth/register', { email, password });
+  register(email: string, password: string, role: string):  Observable<AuthToken> {
+    return this.http.post<AuthToken>('http://localhost:8000/auth/register', { email, password, role });
   }
 }

@@ -13,6 +13,9 @@ export class LoginComponent implements OnInit {
   ngOnInit() {}
 
   login() {
-    this.authService.login('test@email.com', 'test').subscribe(response => console.log(response));
+    this.authService.login('test@email.com', 'test').subscribe(response => {
+      console.log(response);
+      console.log(this.authService.decodedAuthToken);
+    });
   }
 }
