@@ -3,12 +3,15 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
+import { JwtHelperService } from '@auth0/angular-jwt';
+
 export type AuthToken = { access_token: string };
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
+  helper = new JwtHelperService();
 
   constructor(private http: HttpClient) { }
 
@@ -18,6 +21,10 @@ export class AuthenticationService {
 
   public get authToken(): string {
     return localStorage.getItem('access_token') || "";
+  }
+
+  public get decodedAuthToken(): object {
+    return this.helper.decodeToken(localStorage.getItem('access_token')) || {};
   }
   
   login(email: string, password: string): Observable<AuthToken> {
