@@ -20,15 +20,15 @@ export type User = {
 export class AuthenticationService {
   helper = new JwtHelperService();
 
-  private activeUserSubject: BehaviorSubject<User>;
-  public activeUser$: Observable<User>; 
+  private activeUserSubject: BehaviorSubject<User> = new BehaviorSubject<User>(this.decodedAuthToken);
+  public activeUser$: Observable<User> = this.activeUserSubject.asObservable();
+  
+  private isLoggedInSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(this.loggedIn());
+  public isLoggedIn$: Observable<boolean> = this.isLoggedInSubject.asObservable();
 
-  constructor(private http: HttpClient) { 
-    this.activeUserSubject = new BehaviorSubject<User>(this.decodedAuthToken);
-    this.activeUser$ = this.activeUserSubject.asObservable();
-  }
+  constructor(private http: HttpClient) {}
 
-  public get loggedIn(): boolean {
+  private loggedIn(): boolean {
     return localStorage.getItem('access_token') !==  null;
   }
 
@@ -45,6 +45,7 @@ export class AuthenticationService {
       tap(response => {
         localStorage.setItem('access_token', response.access_token);
         this.activeUserSubject.next(this.decodedAuthToken);
+        this.isLoggedInSubject.next(true);
       })
     );
   }
@@ -52,6 +53,7 @@ export class AuthenticationService {
   logout(): void {
     localStorage.removeItem('access_token');
     this.activeUserSubject.next(this.decodedAuthToken);
+    this.isLoggedInSubject.next(false);
   }
 
   register(email: string, password: string, role: string):  Observable<AuthToken> {
