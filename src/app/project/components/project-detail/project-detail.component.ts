@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs';
-import { switchMap, tap, filter } from 'rxjs/operators';
+import { switchMap, tap, filter, map } from 'rxjs/operators';
 
 import { ProjectService } from '@app/project/project.service';
 import { Project } from '@app/models/project.model';
@@ -24,11 +24,9 @@ export class ProjectDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.project$ = this.route.paramMap.pipe(
-      filter((params: ParamMap) => params.has('id')),
-      switchMap((params: ParamMap) =>
-        this.projectService.get(+params.get('id')))
-    );
+    this.project$ = this.route.data.pipe(
+      map(data => data.project)
+    )
   }
 
   onHighlight() {

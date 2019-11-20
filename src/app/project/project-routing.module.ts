@@ -5,6 +5,7 @@ import { AuthenticationGuard } from '@app/auth/authentication.guard';
 import { ProjectComponent } from './pages/project.component';
 import { ProjectDetailComponent } from './components/project-detail/project-detail.component';
 import { ProjectDashboardComponent } from './pages/project-dashboard/project-dashboard.component';
+import { ProjectDetailResolverService } from './project-detail.resolver.service';
 
 
 const routes: Routes = [
@@ -14,7 +15,13 @@ const routes: Routes = [
     canActivateChild: [ AuthenticationGuard ],
     children: [
       { path: '', component: ProjectDashboardComponent },
-      { path: ':id', component: ProjectDetailComponent }
+      { 
+        path: ':id', 
+        component: ProjectDetailComponent,
+        resolve: {
+          project: ProjectDetailResolverService
+        }
+      }
     ]
   }
 ];

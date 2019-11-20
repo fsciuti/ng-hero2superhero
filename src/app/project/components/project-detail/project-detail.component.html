@@ -7,4 +7,5 @@
         <span *ngIf="project.end">- Data Fine: {{project.end | date:'dd/MM/yyyy'}}</span>
     </p>
     <button class="btn btn-primary btn-sm" (click)="onHighlight();">Metti in Evidenza</button>
+    <button class="btn btn-primary btn-sm m-1" [routerLink]="['../4']">Vai al Progetto</button>
 </div>
