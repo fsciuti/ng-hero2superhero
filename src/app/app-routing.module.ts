@@ -7,7 +7,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
 import { LogoutComponent } from './auth/logout/logout.component';
 import { AuthenticationGuard } from './auth/authentication.guard';
-import { GuideComponent } from './guide/guide.component';
+import { GuideComponent } from '@app/layout';
 
 const routes: Routes = [
     {

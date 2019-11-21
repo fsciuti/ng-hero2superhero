@@ -11,10 +11,9 @@ import { LoginComponent } from './auth/login/login.component';
 import { LogoutComponent } from './auth/logout/logout.component';
 import { JwtInterceptor } from './auth/jwt.interceptor';
 import { ErrorInterceptor } from './auth/error.interceptor';
-import { HeaderComponent } from './header/header.component';
 import { HasRoleDirective } from '@app/auth/has-role.directive';
 import { IsAuthedDirective } from '@app/auth/is-authed.directive';
-import { GuideComponent } from './guide/guide.component';
+import { LayoutModule } from './layout/layout.module';
 
 
 @NgModule({
@@ -23,14 +22,13 @@ import { GuideComponent } from './guide/guide.component';
     RegisterComponent,
     LoginComponent,
     LogoutComponent,
-    HeaderComponent,
     HasRoleDirective,
-    IsAuthedDirective,
-    GuideComponent
+    IsAuthedDirective
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    LayoutModule,
     AppRoutingModule
   ],
   providers: [

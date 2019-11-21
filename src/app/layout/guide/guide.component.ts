@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router, RouterEvent, NavigationEnd, ActivatedRoute, PRIMARY_OUTLET } from '@angular/router';
-import { filter, switchMap, map, tap } from 'rxjs/operators';
+import { Router, RouterEvent, NavigationEnd, ActivatedRoute } from '@angular/router';
+import { filter, switchMap } from 'rxjs/operators';
 import { of, from, Subscription } from 'rxjs';
 
 @Component({
