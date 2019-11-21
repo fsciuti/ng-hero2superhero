@@ -6,25 +6,20 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 
-import { RegisterComponent } from './auth/register/register.component';
-import { LoginComponent } from './auth/login/login.component';
-import { LogoutComponent } from './auth/logout/logout.component';
-
 import { LayoutModule } from './layout/layout.module';
 import { CoreModule } from './core/core.module';
+import { AuthModule } from './modules/auth/auth.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    RegisterComponent,
-    LoginComponent,
-    LogoutComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     LayoutModule,
     CoreModule,
+    AuthModule,
     AppRoutingModule
   ],
   providers: [],

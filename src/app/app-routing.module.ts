@@ -6,25 +6,12 @@ import { SelectivePreloadingStrategyService } from './selective-preloading-strat
 import { AuthenticationGuard } from '@app/core/auth/authentication.guard';
 import { GuideComponent } from '@app/layout';
 
-import { RegisterComponent } from './auth/register/register.component';
-import { LoginComponent } from './auth/login/login.component';
-import { LogoutComponent } from './auth/logout/logout.component';
-
 const routes: Routes = [
     {
         path: 'guide',
         component: GuideComponent,
         outlet: 'popup'
     },
-    { 
-        path: 'signin',
-        component: LoginComponent,
-        data: {
-            guide: 'Esegui il tuo login'
-        }
-    },
-    { path: 'signout', component: LogoutComponent },
-    { path: 'signup', component: RegisterComponent },
     { 
         path: 'projects',
         loadChildren: () => import('./modules/project/project.module').then(m => m.ProjectModule),
