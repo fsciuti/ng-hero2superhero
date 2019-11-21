@@ -15,13 +15,22 @@ const routes: Routes = [
         component: GuideComponent,
         outlet: 'popup'
     },
-    { path: 'signin', component: LoginComponent },
+    { 
+        path: 'signin',
+        component: LoginComponent,
+        data: {
+            guide: 'Esegui il tuo login'
+        }
+    },
     { path: 'signout', component: LogoutComponent },
     { path: 'signup', component: RegisterComponent },
     { 
         path: 'projects',
         loadChildren: () => import('./project/project.module').then(m => m.ProjectModule),
-        canLoad: [ AuthenticationGuard ]
+        canLoad: [ AuthenticationGuard ],
+        data: {
+            guide: 'Area di Gestione dei Progetti'
+        }
     },
     { path: '', redirectTo: 'signin', pathMatch: 'full',  },
     { path: '**', redirectTo: 'signin' }
