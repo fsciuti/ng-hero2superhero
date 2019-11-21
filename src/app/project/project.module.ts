@@ -19,8 +19,6 @@ import { ProjectDashboardComponent } from './pages/project-dashboard/project-das
     CommonModule,
     ProjectRoutingModule
   ],
-  exports: [
-    ProjectComponent
-  ]
+  exports: []
 })
 export class ProjectModule { }
