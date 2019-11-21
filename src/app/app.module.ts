@@ -11,8 +11,6 @@ import { LoginComponent } from './auth/login/login.component';
 import { LogoutComponent } from './auth/logout/logout.component';
 import { JwtInterceptor } from './auth/jwt.interceptor';
 import { ErrorInterceptor } from './auth/error.interceptor';
-import { HasRoleDirective } from '@app/auth/has-role.directive';
-import { IsAuthedDirective } from '@app/auth/is-authed.directive';
 import { LayoutModule } from './layout/layout.module';
 
 
@@ -21,9 +19,7 @@ import { LayoutModule } from './layout/layout.module';
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    LogoutComponent,
-    HasRoleDirective,
-    IsAuthedDirective
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
