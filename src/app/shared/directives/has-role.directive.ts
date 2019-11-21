@@ -1,7 +1,8 @@
 import { Directive, OnInit, OnDestroy, ViewContainerRef, TemplateRef, Input } from '@angular/core';
-import { AuthenticationService } from '@app/auth/authentication.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+
+import { AuthenticationService } from '@app/core/auth/authentication.service';
 
 @Directive({
     selector: '[fsHasRole]'

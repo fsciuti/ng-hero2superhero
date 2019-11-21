@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HasRoleDirective, IsAuthedDirective } from './directives';
 import { RouterModule } from '@angular/router';
 
-
+import { HasRoleDirective, IsAuthedDirective } from './directives';
 
 @NgModule({
   declarations: [
@@ -11,8 +10,7 @@ import { RouterModule } from '@angular/router';
     IsAuthedDirective
   ],
   imports: [
-    CommonModule,
-    RouterModule
+    CommonModule
   ],
   exports: [
     RouterModule,

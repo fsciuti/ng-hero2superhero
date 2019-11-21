@@ -1,6 +1,6 @@
 import { Directive, Input, OnInit, TemplateRef, ViewContainerRef } from '@angular/core';
 
-import { AuthenticationService } from '@app/auth/authentication.service';
+import { AuthenticationService } from '@app/core/auth/authentication.service';
 
 @Directive({ selector: '[fsIsAuthed]' })
 export class IsAuthedDirective implements OnInit {
