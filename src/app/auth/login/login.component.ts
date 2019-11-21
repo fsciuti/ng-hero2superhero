@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../authentication.service';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { switchMap, tap } from 'rxjs/operators';
+
+import { AuthenticationService } from '@app/core/auth/authentication.service';
 
 @Component({
   selector: 'ngptt-login',

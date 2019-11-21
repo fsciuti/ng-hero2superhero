@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AuthenticationGuard } from '@app/auth/authentication.guard';
+import { AuthenticationGuard } from '@app/core/auth/authentication.guard';
 
 import { ProjectDetailResolverService } from './resolvers';
 import { ProjectComponent, ProjectDashboardComponent } from './pages';

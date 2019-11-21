@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../authentication.service';
+
+import { AuthenticationService } from '@app/core/auth/authentication.service';
 
 @Component({
   selector: 'ngptt-logout',
