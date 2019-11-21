@@ -3,11 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { SelectivePreloadingStrategyService } from './selective-preloading-strategy.service';
 
+import { AuthenticationGuard } from '@app/core/auth/authentication.guard';
+import { GuideComponent } from '@app/layout';
+
 import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
 import { LogoutComponent } from './auth/logout/logout.component';
-import { AuthenticationGuard } from './auth/authentication.guard';
-import { GuideComponent } from '@app/layout';
 
 const routes: Routes = [
     {

@@ -9,9 +9,9 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
 import { LogoutComponent } from './auth/logout/logout.component';
-import { JwtInterceptor } from './auth/jwt.interceptor';
-import { ErrorInterceptor } from './auth/error.interceptor';
+
 import { LayoutModule } from './layout/layout.module';
+import { CoreModule } from './core/core.module';
 
 
 @NgModule({
@@ -23,14 +23,11 @@ import { LayoutModule } from './layout/layout.module';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
     LayoutModule,
+    CoreModule,
     AppRoutingModule
   ],
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
