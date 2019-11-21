@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { Project } from '@app/models/project.model';
+
+import { Project } from '@app/models';
 
 @Component({
   selector: 'ngptt-project-list',

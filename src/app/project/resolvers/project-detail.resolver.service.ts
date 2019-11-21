@@ -4,10 +4,11 @@ import {
     RouterStateSnapshot,
     ActivatedRouteSnapshot
 } from '@angular/router';
+import { mergeMap, catchError } from 'rxjs/operators';
+import { of, Observable, throwError } from 'rxjs';
+
 import { ProjectService } from '../project.service';
-import { take, mergeMap, catchError, throwIfEmpty } from 'rxjs/operators';
-import { EMPTY, of, Observable, throwError } from 'rxjs';
-import { Project } from '@app/models/project.model';
+import { Project } from '@app/models';
 
 @Injectable({
     providedIn: 'root',

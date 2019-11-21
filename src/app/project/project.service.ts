@@ -5,7 +5,7 @@ import { catchError, retry } from 'rxjs/operators';
 
 import { environment } from '@app/../environments/environment';
 
-import { Project } from '@app/project/models/project.model';
+import { Project } from '@app/models';
 
 const domain = 'projects';
 

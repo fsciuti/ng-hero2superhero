@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Project } from '@app/models/project.model';
-import { ProjectService } from '@app/project/project.service';
+
+import { Project } from '@app/models';
+import { ProjectService } from '../../project.service';
 
 @Component({
   selector: 'ngptt-project-dashboard',

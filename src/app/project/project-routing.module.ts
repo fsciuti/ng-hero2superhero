@@ -2,12 +2,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AuthenticationGuard } from '@app/auth/authentication.guard';
-import { ProjectDetailResolverService } from './resolvers/project-detail.resolver.service';
 
-import { ProjectComponent } from './pages/project.component';
-import { ProjectDetailComponent } from './components/project-detail/project-detail.component';
-import { ProjectDashboardComponent } from './pages/project-dashboard/project-dashboard.component';
-
+import { ProjectDetailResolverService } from './resolvers';
+import { ProjectComponent, ProjectDashboardComponent } from './pages';
+import { ProjectDetailComponent } from './components';
 
 const routes: Routes = [
   { 
