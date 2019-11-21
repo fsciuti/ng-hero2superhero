@@ -32,6 +32,14 @@ const routes: Routes = [
             guide: 'Area di Gestione dei Progetti'
         }
     },
+    { 
+        path: 'admin',
+        loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule),
+        canLoad: [ AuthenticationGuard ],
+        data: {
+            guide: 'Area Amministrativa'
+        }
+    },
     { path: '', redirectTo: 'signin', pathMatch: 'full',  },
     { path: '**', redirectTo: 'signin' }
 ]

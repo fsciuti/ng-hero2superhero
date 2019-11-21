@@ -16,8 +16,8 @@
             <li class="nav-item" [routerLinkActive]="'active'">
                 <a class="nav-link" *fsIsAuthed="true" routerLink="/signout">Logout</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" *fsHasRole="'admin'" href="#">Area Admin</a>
+            <li class="nav-item" [routerLinkActive]="'active'">
+                <a class="nav-link" *fsHasRole="'admin'" routerLink="/admin">Area Admin</a>
             </li>
         </ul>
     </div>
