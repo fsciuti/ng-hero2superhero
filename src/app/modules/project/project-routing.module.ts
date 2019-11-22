@@ -4,8 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthenticationGuard } from '@app/core/auth/authentication.guard';
 
 import { ProjectDetailResolverService } from './resolvers';
-import { ProjectComponent, ProjectDashboardComponent } from './pages';
-import { ProjectDetailComponent } from './components';
+import { ProjectComponent, ProjectDashboardComponent, ProjectDetailComponent } from './pages';
 
 const routes: Routes = [
   { 
