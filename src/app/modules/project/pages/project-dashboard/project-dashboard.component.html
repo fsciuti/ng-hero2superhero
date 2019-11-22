@@ -1,18 +1,38 @@
-<ngptt-project-list 
-    [tplSingleProject]="tplSingleProject" 
-    [projects]="projects" 
-    (selected)="onSelectedProject($event)">
-</ngptt-project-list>
-<ngptt-project-detail (highlight)="onHighlightProject($event)" [project]="selectedProject"></ngptt-project-detail>
+<div class="row">
+    <div class="col-md-8">
+        <h1 class="mb-4">I tuoi Progetti</h1>
+        <hr/>
+        <div [ngClass]="{ 'card-columns': listView }">
+            <ngptt-project-list 
+                [tplSingleProject]="tplSingleProject" 
+                [projects]="projects"
+                (selected)="onSelectedProject($event)">
+            </ngptt-project-list>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <button class="btn btn-sm btn-secondary" (click)="changeProjectListView()">Cambia Visualizzazione</button>
+        <hr />
+        <ng-container *ngIf="selectedProject else noSelectedProject">
+            <ngptt-project-box [project]="selectedProject" [classes]="'alert alert-success'">
+                {{selectedProject.description}}
+            </ngptt-project-box>
+        </ng-container>
+    </div>
+</div>
 
 <ng-template #tplSingleProject let-project="project">
-    <ngptt-project-box 
-        [project]="project" 
-        [classes]="{'border-info': project.done, 'border-warning': !project.done }"
-    >
+    <ngptt-project-box [project]="project"
+        [classes]="{'mb-3': true, 'border-info': project.done, 'border-warning': !project.done }">
         <ng-container>
             <button class="btn btn-primary btn-sm m-1" (click)="onSelectedProject(project)">Anteprima Progetto</button>
-            <button class="btn btn-primary btn-sm m-1" [routerLink]="['./', project.id]">Vai al Progetto</button> 
+            <button class="btn btn-primary btn-sm m-1" [routerLink]="['./', project.id]">Vai al Progetto</button>
         </ng-container>
     </ngptt-project-box>
+</ng-template>
+
+<ng-template #noSelectedProject>
+    <div class="alert alert-secondary" role="alert">
+        Nessun progetto in anteprima!
+    </div>
 </ng-template>

@@ -11,6 +11,7 @@ import { ProjectService } from '../../project.service';
 export class ProjectDashboardComponent implements OnInit {
   projects: Project[] = [];
   selectedProject: Project;
+  listView = false;
 
   constructor(private projectService: ProjectService) { }
 
@@ -25,5 +26,9 @@ export class ProjectDashboardComponent implements OnInit {
 
   onHighlightProject(project: Project) {
     console.log('highlight', project);
+  }
+
+  changeProjectListView() {
+    this.listView = !this.listView;
   }
 }
