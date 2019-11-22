@@ -1,11 +1,10 @@
 <div class="card-columns" *ngIf="projects.length else noProjects">
     <!-- <ng-template [ngIf]="projects" [ngIfElse]="noProjects"> -->
     <ng-container *ngFor="let project of projects">
-        <ng-container *ngTemplateOutlet="tplSingleProject;context:{project: project}"></ng-container>
-        <!-- 
-            [ngTemplateOutlet]="tplSingleProject"
+        <!-- <ng-container *ngTemplateOutlet="!tplSingleProject ? simpleProject : tplSingleProject;context:{project: project}"></ng-container> -->
+        <ng-container 
+            [ngTemplateOutlet]="tplSingleProject ? tplSingleProject : simpleProject"
             [ngTemplateOutletContext]="{project: project}"></ng-container>
-        -->
     </ng-container>
 </div>
 
@@ -13,13 +12,7 @@
     <p>Nessun progetto presente</p>
 </ng-template>
 
-<ng-template #tplSingleProject let-project="project">
-    <div class="card" [ngClass]="{'border-info': project.done, 'border-warning': !project.done }">
-        <div class="card-body">
-            <h5 class="card-title"><span class="badge badge-light float-right">{{ project.code }}</span>
-                {{ project.name }}</h5>
-            <button class="btn btn-primary btn-sm m-1" (click)="selectProject(project)">Anteprima Progetto</button>
-            <button class="btn btn-primary btn-sm m-1" [routerLink]="['./', project.id]">Vai al Progetto</button>
-        </div>
-    </div>
+<ng-template #simpleProject let-project="project">
+    <p>{{ project.name }}</p>
 </ng-template>
+
