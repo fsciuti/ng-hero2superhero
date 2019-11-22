@@ -1,1 +1,9 @@
-<button class="btn btn-warning" (click)="login()">Login Utente</button>
+<div class="d-flex justify-content-center align-items-center container ">
+    <div>
+        <ngptt-auth-form (submitted)="submit($event)" buttonLabel="Login"></ngptt-auth-form>
+        <hr />
+        <div class="text-center">
+            <button class="btn btn-link" routerLink="/signup">Vai a registrazione</button>
+        </div>
+    </div>
+</div>

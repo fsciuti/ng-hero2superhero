@@ -13,14 +13,15 @@ export class LoginComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private router: Router, private authService: AuthenticationService) { }
 
-  ngOnInit() {}
-
-  login() {
+  ngOnInit() {
     this.route.queryParamMap.subscribe((data: ParamMap) => {
       console.log('dopo il login verrai reindirizzato', data.get('returnUrl'));
     })
+  }
 
-    this.authService.login('test@email.com', 'test').pipe(
+  submit(f) {
+    const { email, password } = f.value;
+    this.authService.login(email, password).pipe(
       tap(response => {
         console.log(response);
         console.log(this.authService.decodedAuthToken);
@@ -29,6 +30,8 @@ export class LoginComponent implements OnInit {
     ).subscribe((data: ParamMap) => {
       if(data.has('returnUrl')) {
         this.router.navigate([data.get('returnUrl')]);
+      } else {
+        this.router.navigate(['/projects']);
       }
     });
   }

@@ -1,1 +1,19 @@
-<button class="btn btn-warning" (click)="register()">Registra Utente</button>
+<div class="d-flex justify-content-center align-items-center container ">
+    <div>
+        <ngptt-auth-form (submitted)="register($event)" buttonLabel="Registra">
+            <div class="form-group">
+                <label for="role">Ruolo</label>
+                <select class="form-control" name="role" required ngModel #roleField="ngModel">
+                    <option value="admin">Admin</option>
+                    <option value="guest">Guest</option>
+                </select>
+                <p class="text-danger" *ngIf="roleField.invalid && roleField.touched"><small>Il campo è
+                        richiesto</small></p>
+            </div>
+        </ngptt-auth-form>
+        <hr />
+        <div class="text-center">
+            <button class="btn btn-link" routerLink="/signin">Vai al login</button>
+        </div>
+    </div>
+</div>
