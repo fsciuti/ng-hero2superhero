@@ -4,7 +4,8 @@
         <!-- <ng-container *ngTemplateOutlet="!tplSingleProject ? simpleProject : tplSingleProject;context:{project: project}"></ng-container> -->
         <ng-container 
             [ngTemplateOutlet]="tplSingleProject ? tplSingleProject : simpleProject"
-            [ngTemplateOutletContext]="{project: project}"></ng-container>
+            [ngTemplateOutletContext]="{project: project}">
+        </ng-container>
     </ng-container>
 </div>
 
