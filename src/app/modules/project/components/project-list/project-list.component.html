@@ -1,4 +1,4 @@
-<div class="card-columns">
+<div class="card-columns" *ngIf="projects.length else noProjects"> <!-- <ng-template [ngIf]="projects" [ngIfElse]="noProjects"> -->
     <div *ngFor="let project of projects">
         <div class="card" [ngClass]="{'border-info': project.done, 'border-warning': !project.done }">
             <div class="card-body">
@@ -10,3 +10,7 @@
         </div>
     </div>
 </div>
+
+<ng-template #noProjects>
+    <p>Nessun progetto presente</p>
+</ng-template>
