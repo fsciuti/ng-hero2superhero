@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ProjectRoutingModule } from './project-routing.module';
 import { ProjectComponent, ProjectDashboardComponent, ProjectDetailComponent } from './pages';
 import { ProjectListComponent, ProjectBoxComponent } from './components';
+import { SharedModule } from '@app/shared/shared.module';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { ProjectListComponent, ProjectBoxComponent } from './components';
   ],
   imports: [
     CommonModule,
+    SharedModule,
     ProjectRoutingModule
   ],
   exports: []
