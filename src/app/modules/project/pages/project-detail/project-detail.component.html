@@ -1,11 +1,16 @@
-<div class="jumbotron" *ngIf="project || (project$ | async) as project">
-    <h1 class="display-4">{{project.name}}</h1>
-    <p class="lead">{{project.description}}</p>
-    <hr class="my-4">
-    <p>
-        <span>Codice: {{project.code}} - Data Inizio: {{project.start | date:'dd/MM/yyyy'}}</span>
-        <span *ngIf="project.end">- Data Fine: {{project.end | date:'dd/MM/yyyy'}}</span>
-    </p>
+<ng-container *ngIf="project || (project$ | async) as project">
+    <ngptt-card [classes]="'jumbotron'">
+        <ng-container ngProjectAs="[data-title]">
+            <h1 class="display-4">{{project.name}}</h1>
+            <p class="lead">{{project.description}}</p>
+            <hr class="my-4">
+        </ng-container>
+        <ng-container ngProjectAs="[data-body]">
+            <p>
+                <span>Codice: {{project.code}} - Data Inizio: {{project.start | date:'dd/MM/yyyy'}}</span>
+                <span *ngIf="project.end">- Data Fine: {{project.end | date:'dd/MM/yyyy'}}</span>
+            </p>
+        </ng-container>
+    </ngptt-card>
     <button class="btn btn-primary btn-sm" (click)="onHighlight();">Metti in Evidenza</button>
-    <button class="btn btn-primary btn-sm m-1" [routerLink]="['../4']">Vai al Progetto</button>
-</div>
+</ng-container>
