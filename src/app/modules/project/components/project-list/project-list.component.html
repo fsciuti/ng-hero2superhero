@@ -1,16 +1,25 @@
-<div class="card-columns" *ngIf="projects.length else noProjects"> <!-- <ng-template [ngIf]="projects" [ngIfElse]="noProjects"> -->
+<div class="card-columns" *ngIf="projects.length else noProjects">
+    <!-- <ng-template [ngIf]="projects" [ngIfElse]="noProjects"> -->
     <ng-container *ngFor="let project of projects">
-        <div class="card" [ngClass]="{'border-info': project.done, 'border-warning': !project.done }">
-            <div class="card-body">
-                <h5 class="card-title"><span class="badge badge-light float-right">{{ project.code }}</span>
-                    {{ project.name }}</h5>
-                <button class="btn btn-primary btn-sm m-1" (click)="selectProject(project)">Anteprima Progetto</button>
-                <button class="btn btn-primary btn-sm m-1" [routerLink]="['./', project.id]">Vai al Progetto</button>
-            </div>
-        </div>
+        <ng-container *ngTemplateOutlet="tplSingleProject;context:{project: project}"></ng-container>
+        <!-- 
+            [ngTemplateOutlet]="tplSingleProject"
+            [ngTemplateOutletContext]="{project: project}"></ng-container>
+        -->
     </ng-container>
 </div>
 
 <ng-template #noProjects>
     <p>Nessun progetto presente</p>
+</ng-template>
+
+<ng-template #tplSingleProject let-project="project">
+    <div class="card" [ngClass]="{'border-info': project.done, 'border-warning': !project.done }">
+        <div class="card-body">
+            <h5 class="card-title"><span class="badge badge-light float-right">{{ project.code }}</span>
+                {{ project.name }}</h5>
+            <button class="btn btn-primary btn-sm m-1" (click)="selectProject(project)">Anteprima Progetto</button>
+            <button class="btn btn-primary btn-sm m-1" [routerLink]="['./', project.id]">Vai al Progetto</button>
+        </div>
+    </div>
 </ng-template>
