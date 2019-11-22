@@ -14,7 +14,7 @@
                 <a class="nav-link" *fsIsAuthed="false" routerLink="/signin">Login</a>
             </li>
             <li class="nav-item" [routerLinkActive]="'active'">
-                <a class="nav-link" *fsIsAuthed="true" routerLink="/signout">Logout</a>
+                <a class="nav-link" *fsIsAuthed="true" ngpttLogout>Logout</a>
             </li>
             <li class="nav-item" [routerLinkActive]="'active'">
                 <a class="nav-link" *fsHasRole="'admin'" routerLink="/admin">Area Admin</a>
