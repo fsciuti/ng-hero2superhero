@@ -1,16 +1,27 @@
-<ng-container *ngIf="project || (project$ | async) as project">
-    <ngptt-card [classes]="'jumbotron'">
-        <ng-container ngProjectAs="[data-title]">
-            <h1 class="display-4">{{project.name}}</h1>
-            <p class="lead">{{project.description}}</p>
-            <hr class="my-4">
-        </ng-container>
-        <ng-container ngProjectAs="[data-body]">
-            <p>
-                <span>Codice: {{project.code}} - Data Inizio: {{project.start | date:'dd/MM/yyyy'}}</span>
-                <span *ngIf="project.end">- Data Fine: {{project.end | date:'dd/MM/yyyy'}}</span>
-            </p>
-        </ng-container>
-    </ngptt-card>
-    <button class="btn btn-primary btn-sm" (click)="onHighlight();">Metti in Evidenza</button>
-</ng-container>
+<ngptt-tabs>
+    <ngptt-tab [tabTitle]="'Dettagli'">
+        <ng-container *ngTemplateOutlet="tabDettagli"></ng-container>
+    </ngptt-tab>
+    <ngptt-tab [tabTitle]="'Altro'">
+        Lorem Ipsum dolor sit amet...
+    </ngptt-tab>
+</ngptt-tabs>
+
+<ng-template #tabDettagli>
+    <ng-container *ngIf="project || (project$ | async) as project">
+        <ngptt-card [classes]="'jumbotron'">
+            <ng-container ngProjectAs="[data-title]">
+                <h1 class="display-4">{{project.name}}</h1>
+                <p class="lead">{{project.description}}</p>
+                <hr class="my-4">
+            </ng-container>
+            <ng-container ngProjectAs="[data-body]">
+                <p>
+                    <span>Codice: {{project.code}} - Data Inizio: {{project.start | date:'dd/MM/yyyy'}}</span>
+                    <span *ngIf="project.end">- Data Fine: {{project.end | date:'dd/MM/yyyy'}}</span>
+                </p>
+            </ng-container>
+        </ngptt-card>
+        <button class="btn btn-primary btn-sm" (click)="onHighlight();">Metti in Evidenza</button>
+    </ng-container>
+</ng-template>
