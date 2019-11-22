@@ -4,13 +4,18 @@ import { Routes, RouterModule } from '@angular/router';
 import { SelectivePreloadingStrategyService } from './selective-preloading-strategy.service';
 
 import { AuthenticationGuard } from '@app/core/auth/authentication.guard';
-import { GuideComponent } from '@app/layout';
+import { GuideComponent, HomeComponent } from '@app/layout';
 
 const routes: Routes = [
+
     {
         path: 'guide',
         component: GuideComponent,
         outlet: 'popup'
+    },
+    {
+        path: 'home',
+        component: HomeComponent
     },
     { 
         path: 'projects',
@@ -28,7 +33,7 @@ const routes: Routes = [
             guide: 'Area Amministrativa'
         }
     },
-    { path: '', redirectTo: 'signin', pathMatch: 'full',  },
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: '**', redirectTo: 'signin' }
 ]
 
