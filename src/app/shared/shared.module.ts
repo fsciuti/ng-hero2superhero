@@ -4,12 +4,16 @@ import { RouterModule } from '@angular/router';
 
 import { HasRoleDirective, IsAuthedDirective } from './directives';
 import { CardComponent } from './components';
+import { TabsComponent } from './components/tabs/tabs/tabs.component';
+import { TabComponent } from './components/tabs/tab/tab.component';
 
 @NgModule({
   declarations: [
     HasRoleDirective,
     IsAuthedDirective,
-    CardComponent
+    CardComponent,
+    TabsComponent,
+    TabComponent
   ],
   imports: [
     CommonModule
@@ -18,7 +22,9 @@ import { CardComponent } from './components';
     RouterModule,
     HasRoleDirective,
     IsAuthedDirective,
-    CardComponent
+    CardComponent,
+    TabsComponent,
+    TabComponent
   ]
 })
 export class SharedModule { }
