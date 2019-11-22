@@ -1,13 +1,9 @@
-<div class="card-columns" *ngIf="projects.length else noProjects">
-    <!-- <ng-template [ngIf]="projects" [ngIfElse]="noProjects"> -->
-    <ng-container *ngFor="let project of projects">
-        <!-- <ng-container *ngTemplateOutlet="!tplSingleProject ? simpleProject : tplSingleProject;context:{project: project}"></ng-container> -->
-        <ng-container 
-            [ngTemplateOutlet]="tplSingleProject ? tplSingleProject : simpleProject"
-            [ngTemplateOutletContext]="{project: project}">
-        </ng-container>
+<ng-container *ngIf="projects.length else noProjects">
+    <ng-container *ngFor="let project of projects"
+        [ngTemplateOutlet]="tplSingleProject ? tplSingleProject : simpleProject"
+        [ngTemplateOutletContext]="{project: project}">
     </ng-container>
-</div>
+</ng-container>
 
 <ng-template #noProjects>
     <p>Nessun progetto presente</p>
