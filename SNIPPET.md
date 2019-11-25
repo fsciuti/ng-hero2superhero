@@ -85,6 +85,13 @@
         </div>
     </div>
 </div>
+```
+
+
+## step-3-basic-component-communication
+#### project-list.component.html
+
+```
 <div class="jumbotron">
     <h1 class="display-4">{{project.name}}</h1>
     <p class="lead">{{project.description}}</p>
